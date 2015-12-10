@@ -78,5 +78,19 @@ Vagrant.configure(2) do |config|
 	mkdir scripts
    	sudo chown -R vagrant:vagrant scripts/ 
         mv *.sh ./scripts
+	sudo JavaSet/jdk-6u45-linux-x64-rpm.bin
+   	sudo tar -xvf JavaSet/jdk-7u79-linux-x64.gz -C /usr/local
+	ln -s /usr/local/jdk1.7.0_79 /usr/local/java7
+	sudo chown -R vagrant:vagrant /usr/local/jdk1.7.0_79
+	sudo chown -R vagrant:vagrant /usr/local/java7
+        sudo tar -xvf JavaSet/jdk-8u65-linux-x64.gz -C /usr/local
+        sudo ln -s /usr/local/jdk1.8.0_65 /usr/local/java8
+	sudo chown -R vagrant:vagrant /usr/local/jdk1.8.0_65
+	sudo chown -R vagrant:vagrant /usr/local/java8
+	sudo tar -xvf JavaSet/apache-maven-3.3.9-bin.tar.gz -C /usr/local
+        sudo ln -s /usr/local/apache-maven-3.3.9 /usr/local/maven3.3
+	sudo chown -R vagrant:vagrant /usr/local/apache-maven-3.3.9
+	sudo chown -R vagrant:vagrant /usr/local/maven3.3
+	rm -rf *.rpm
    SHELL
 end
