@@ -9,7 +9,8 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "pinpoint-box"
-  config.vm.provision "file", source: "./getJavaSet.sh", destination: "getJavaSet.sh"
+  config.vm.provision "file", source: "./pinpoint-box.sh", destination: "pinpoint-box.sh"
+
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -66,29 +67,8 @@ Vagrant.configure(2) do |config|
    config.vm.provision "shell", inline: <<-SHELL
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
-   	sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
-        sudo yum -y update
-   	sudo yum -y install git
-   	git clone https://github.com/naver/pinpoint	
-   	sudo chown -R vagrant:vagrant pinpoint/ 
-   	sudo chown vagrant:vagrant getJavaSet.sh
-	./getJavaSet.sh
-        mv JavaSet.* JavaSet.tar
-        sudo chown vagrant:vagrant JavaSet.tar
-        tar -xvf JavaSet.tar
-  	rm -rf JavaSet.tar
-	mkdir scripts
-   	sudo chown -R vagrant:vagrant scripts/ 
-        mv *.sh ./scripts
-	sudo JavaSet/jdk-6u45-linux-x64-rpm.bin
-	sudo mv /usr/java/jdk1.6.0_45 /usr/local
-	sudo ln -s /usr/local/jdk1.6.0_45 /usr/local/java6
-   	sudo tar -xvf JavaSet/jdk-7u79-linux-x64.gz -C /usr/local
-	ln -s /usr/local/jdk1.7.0_79 /usr/local/java7
-        sudo tar -xvf JavaSet/jdk-8u65-linux-x64.gz -C /usr/local
-        sudo ln -s /usr/local/jdk1.8.0_65 /usr/local/java8
-	sudo tar -xvf JavaSet/apache-maven-3.3.9-bin.tar.gz -C /usr/local
-        sudo ln -s /usr/local/apache-maven-3.3.9 /usr/local/maven3.3
-	rm -rf *.rpm
+      sudo chmod 755 pinpoint-box.sh
+      sudo chown vagrant:vagrant pinpoint-box.sh
+      ./pinpoint-box.sh
    SHELL
 end
