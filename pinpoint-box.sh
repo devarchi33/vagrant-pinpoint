@@ -27,10 +27,12 @@
         sudo tar -xvf JavaSet/apache-maven-3.3.9-bin.tar.gz -C /usr/local
         sudo ln -s /usr/local/apache-maven-3.3.9 /usr/local/maven3.3
         rm -rf *.rpm
+	systemctl stop firewalld
 
 #환경변수 설정.
 	sudo cp /vagrant/profile /etc/profile
 	source /etc/profile
 
 #pinpoint build
-	cd /home/vagrant/pinpoint && mvn install -Dmaven.test.skip=true
+	su - vagrant && cd /home/vagrant/pinpoint && mvn clean install -Dmaven.test.skip=true
+
