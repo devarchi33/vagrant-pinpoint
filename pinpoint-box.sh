@@ -32,7 +32,3 @@
 #환경변수 설정.
 	sudo cp /vagrant/profile /etc/profile
 	source /etc/profile
-
-#pinpoint build
-	su - vagrant && cd /home/vagrant/pinpoint && mvn clean install -Dmaven.test.skip=true
-
