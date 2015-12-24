@@ -32,3 +32,6 @@
 #환경변수 설정.
 	sudo cp /vagrant/profile /etc/profile
 	source /etc/profile
+
+#hbase 설치.
+	/bin/su - vagrant -c /home/vagrant/pinpoint/quickstart/bin/start-hbase.sh
