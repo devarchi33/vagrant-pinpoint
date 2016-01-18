@@ -80,6 +80,8 @@ export JAVA_7_HOME=/usr/local/java7
 export JAVA_8_HOME=/usr/local/java8 
 export JAVA_HOME=/usr/local/java7
 export MAVEN_HOME=/usr/local/maven3.3 
-export PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH 
+export PINPOINT_QUICK_HOME=/usr/local/pinpoint_quick
+export HBASE_HOME=/usr/local/hbase
+export PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PINPOINT_QUICK_HOME/bin:$HBASE_HOME/bin:$PATH 
 export CLASSPATH=$CLASSPATH:$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
 
